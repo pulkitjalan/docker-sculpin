@@ -47,7 +47,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 # Install Sculpin
 RUN curl -sS -O https://download.sculpin.io/sculpin.phar \
-    && chmod +x sculpin.phar
+    && chmod +x sculpin.phar \
     && mv sculpin.phar /usr/local/bin/sculpin
 
 # Cleanup

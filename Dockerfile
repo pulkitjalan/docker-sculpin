@@ -36,7 +36,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php \
 ARG PHPVERSION=7.0
 RUN apt-get install -y \
     php$PHPVERSION \
-    php$PHPVERSION-curl \
+    php$PHPVERSION-curl
 
 # Install Composer
 ENV COMPOSER_HOME /usr/local/bin/.composer

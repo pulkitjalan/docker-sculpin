@@ -37,7 +37,7 @@ ARG PHPVERSION=7.0
 RUN apt-get install -y \
     php$PHPVERSION \
     php$PHPVERSION-curl \
-    php$PHPVERSION-dom
+    php$PHPVERSION-xml
 
 # Install Composer
 ENV COMPOSER_HOME /usr/local/bin/.composer

@@ -37,6 +37,8 @@ ARG PHPVERSION=7.0
 RUN apt-get install -y \
     php$PHPVERSION \
     php$PHPVERSION-curl \
+    php$PHPVERSION-common \
+    php$PHPVERSION-json \
     php$PHPVERSION-xml
 
 # Install Composer

@@ -48,7 +48,8 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && composer global require hirak/prestissimo:@stable sculpin/sculpin:@stable \
     && composer clear-cache
 
-ENV PATH="/usr/local/bin/.composer/vendor/bin:${PATH}"
+# Add composer bin to path
+ENV PATH="${COMPOSER_HOME}/vendor/bin:${PATH}"
 
 # Install Node and NPM
 ARG NVM_DIR=/usr/local/nvm

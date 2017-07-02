@@ -53,6 +53,26 @@ RUN curl -sS -O https://download.sculpin.io/sculpin.phar \
     && chmod +x sculpin.phar \
     && mv sculpin.phar /usr/local/bin/sculpin
 
+# Install Node and NPM
+ARG NVM_DIR=/usr/local/nvm
+ARG NVM_VERSION=0.33.2
+ARG NODE_VERSION=8.1.3
+RUN wget -qO- https://raw.githubusercontent.com/creationix/nvm/v$NVM_VERSION/install.sh | bash \
+    && source $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm use $NODE_VERSION \
+    && n=$(which node) \
+    && n=${n%/bin/node} \
+    && chmod -R 755 $n/bin/* \
+    && cp -r $n/{bin,lib,share} /usr/local \
+    && nvm unload \
+    && rm -rf $NVM_DIR
+
+# Install jpegoptim & optipng
+RUN apt-get install -y \
+    jpegoptim \
+    optipng
+
 # Cleanup
 RUN apt-get clean \
     && rm -rf ~/* /var/lib/apt/lists/* /tmp/* /var/tmp/* \

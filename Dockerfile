@@ -67,11 +67,6 @@ RUN wget -qO- https://raw.githubusercontent.com/creationix/nvm/v$NVM_VERSION/ins
     && nvm unload \
     && rm -rf $NVM_DIR
 
-# Install jpegoptim & optipng
-RUN apt-get install -y \
-    jpegoptim \
-    optipng
-
 # Cleanup
 RUN apt-get clean \
     && rm -rf ~/* /var/lib/apt/lists/* /tmp/* /var/tmp/* \

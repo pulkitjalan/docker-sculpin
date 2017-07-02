@@ -1,5 +1,4 @@
 FROM ubuntu:14.04
-MAINTAINER Pulkit Twine
 
 # Replace shell with bash so we can source files
 RUN rm /bin/sh \
@@ -47,7 +46,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
     && composer global require hirak/prestissimo:@stable \
     && composer global require dflydev/embedded-composer:@dev \
-    && composer global require sculpin/sculpin:^2.1@dev \
+    && composer global require sculpin/sculpin:@dev \
     && composer clear-cache
 
 # Add composer bin to path

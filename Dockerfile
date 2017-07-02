@@ -45,7 +45,8 @@ RUN apt-get install -y \
 ENV COMPOSER_HOME /usr/local/bin/.composer
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
-    && composer global require hirak/prestissimo:@stable sculpin/sculpin:@stable \
+    && composer global require hirak/prestissimo:@stable \
+    && composer global require sculpin/sculpin:@stable \
     && composer clear-cache
 
 # Add composer bin to path
